@@ -9,7 +9,6 @@ __pycache__/
 .pytest_cache/
 
 # Banco de dados SQLite
-*.db
 *.sqlite3
 
 # Configurações locais
