@@ -1,0 +1,19 @@
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Banco de dados SQLite
+*.db
+*.sqlite3
+
+# Configurações locais
+.env
+.idea/
+.vscode/
+.DS_Store
