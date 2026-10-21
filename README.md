@@ -52,3 +52,23 @@ fastapi dev main.py
 - Documentação interativa (Swagger): http://127.0.0.1:8000/docs
 
 O banco `biblioteca.db` é criado automaticamente na primeira execução.
+
+## Validações e mensagens de erro
+
+Os schemas de entrada usam `Field` do Pydantic, com mensagens de erro customizadas devolvidas em JSON (`422`).
+
+| Campo | Regra | Mensagem |
+|---|---|---|
+| nome / título / autor | obrigatório, sem espaços vazios, mínimo e máximo de caracteres | O campo nome é obrigatório e não pode ficar em branco. |
+| telefone | exatamente 11 dígitos (DDD + número) | O telefone deve conter 11 dígitos com o DDD. |
+| CEP | exatamente 8 dígitos | O CEP deve conter exatamente 8 dígitos. |
+| e-mail | formato válido (`EmailStr`) | Insira um e-mail válido no formato nome@dominio.com. |
+| preço | estritamente maior que zero | O preço deve ser maior que zero. |
+
+## Leitores e empréstimos
+
+- `POST /leitores/` cadastra um leitor.
+- `POST /emprestimos/` empresta um livro (prazo padrão de 7 dias).
+- `GET /emprestimos/atrasados` lista os atrasados, com dias de atraso e multa (R$ 1,00 por dia).
+- `GET /emprestimos/leitor/{leitor_id}` mostra os livros que o leitor está com.
+- `PATCH /emprestimos/{id}/devolver` registra a devolução.
