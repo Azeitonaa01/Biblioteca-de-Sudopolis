@@ -9,10 +9,16 @@ __pycache__/
 .pytest_cache/
 
 # Banco de dados SQLite
+*.db
 *.sqlite3
+*.sqlite
+
 
 # Configurações locais
 .env
 .idea/
 .vscode/
 .DS_Store
+
+# Backups locais
+*.bak
